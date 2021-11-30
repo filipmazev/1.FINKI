@@ -2,48 +2,29 @@
 #include <vector>
 using namespace std;
 
-int checker(int number)
+int checker(int number, int number_original, int status)
 {
-    vector<int> storage_digits;
-    int temp_number=number, counter=0;
-    bool alternate_check = true;
+    if (number == 0){ return number_original; }
 
-    while(temp_number) { storage_digits.push_back(temp_number%10); temp_number/=10; }
+    if(number/10>0){ if(((number%10 < 5)?1:0) == status || number%10 == (number/10) % 10){ return 0; } }
 
-    int Array_Alternate[storage_digits.size()];
-
-    for (unsigned int i=0; i<storage_digits.size()-1; i++)
-    {
-        if (storage_digits[i] >= 5){ Array_Alternate[i] = 1; counter++; }
-
-        else{ Array_Alternate[i] = 0; counter++; }
-    }
-
-    for (int i=0; i<counter-1; i++){
-        if (Array_Alternate[i] == Array_Alternate[i+1] ){ alternate_check=false; } }
-
-    if (alternate_check == true && counter != 0){ return number; }
-    else return 0;
+    return checker(number/10, number_original, ((number%10 < 5)?1:0));
 }
 
 int main()
 {
-    int number;
-    vector<int> storage;
+    int number; vector<int> storage;
 
     while(!cin.fail())
     {
         cin>>number;
-        while(number < 10 && !cin.fail()){ cin>>number; }
 
-        if(!cin.fail()){ storage.push_back(checker(number)); }
+        int status = (((number%10) >= 5)?1:0);
+
+        if(number>10){ storage.push_back(checker(number,number,status)); }
     }
 
-    cout<<endl<<"uslovot cik-cak vazhi za:"<<endl;
-
-    for(int i=0; i<storage.size(); i++){
-        if(storage[i] != 0 ){ cout<<storage[i]<<endl; } }
+    for(unsigned int i=0; i<storage.size(); i++){ if( storage[i] != 0) { cout<<storage[i]<<endl; } }
 
     return 0;
 }
-

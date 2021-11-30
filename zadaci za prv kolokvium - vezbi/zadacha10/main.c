@@ -1,29 +1,28 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-int alternate_check(int num, int num_org, int prev)
+int checker(int number, int number_original, int status)
 {
-    if(num==0){ return num_org; }
-    if(num/10>0){ if(((num%10 >= (num/10)%10)?1:0) == prev) { return 0; }; }
-    alternate_check(num/10, num_org, ((num%10 >= (num/10)%10)?1:0));
+    if (number == 0){ return number_original; }
+
+    if(number/10>0){ if(((number%10 >= ((number/10)%10))?1:0) == status){ return 0; } }
+
+    return checker(number/10, number_original, ((number%10 >= ((number/10)%10))?1:0));
 }
 
 int main()
 {
+    size_t size=1; int number, check=1, *storage = calloc(size, sizeof(int)); unsigned int i=0;
 
-    int num, is_int=1, i=0; int Array[10000];
-
-    while(is_int == 1 || i>10000)
+    while((check = scanf("%d", &number)))
     {
-        is_int = scanf("%d", &num);
-        while(num < 10 && is_int == 1) { is_int = scanf("%d", &num); }
+        int status = (((number%10) <= ((number/10)%10))?1:0);
 
-        if(is_int == 1){
-        int compare = 0; if (num%10 <= (num/10%10)) { compare = 1; }
-        Array[i] = alternate_check(num, num, compare); i++; }
+        if(number>=10){  *(storage+i) = checker(number, number, status); i++; size=i;
+
+        storage = realloc(storage, size * sizeof(int)); }
     }
 
-    for(int j=0; j<i; j++){ if(Array[j] != 0 ) { printf("%d \n", Array[j]); } }
+    for(unsigned int j=0; j<i; j++){ if(*(storage+j) != 0) printf("%d\n", *(storage+j)); }
 
-    return 0;
+    free(storage); return 0;
 }

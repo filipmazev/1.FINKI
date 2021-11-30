@@ -2,22 +2,30 @@
 #include <vector>
 using namespace std;
 
-int alternate_check(int num, int num_org, int prev)
+int checker(int number, int number_org, int prev)
 {
-    if(num==0){ return num_org; }
-    if(num/10>0){ if(((num%10 >= (num/10)%10)?1:0) == prev) { return 0; } }
-    alternate_check(num/10, num_org, ((num%10 >= (num/10)%10)?1:0));
+    if(number==0){ return number_org; }
+
+    if(number/10>0){ if(((number%10 >= (number/10)%10)?1:0) == prev) { return 0; } }
+
+    checker(number/10, number_org, ((number%10 >= (number/10)%10)?1:0));
 }
 
 int main()
 {
-    int num; cin>>num; vector<int> results;
+    int number; cin>>number; vector<int> storage;
 
-    while(!cin.fail()){
-    if(num >= 10){ int compare = 0; if (num%10 <= (num/10%10)) { compare = 1; }
-    results.push_back(alternate_check(num,num, compare)); } cin>>num; }
+    while(!cin.fail())
+    {
+        cin>>number;
 
-    for(unsigned int i=0; i<results.size(); i++){ if(results[i] !=0 ){ cout<<results[i]; } }
+            if(number>=10){ int status = ((number%10 <= (number/10%10))?1:0);
+
+            storage.push_back(checker(number,number,status)); }
+    }
+
+
+    for(unsigned int i=0; i<storage.size(); i++){ if(storage[i] !=0 ){ cout<<storage[i]; } }
 
     return 0;
 }
