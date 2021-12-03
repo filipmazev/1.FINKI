@@ -4,9 +4,7 @@
 int checker(int number, int number_original, int status)
 {
     if (number == 0){ return number_original; }
-
     if(number/10>0){ if(((number%10 >= ((number/10)%10))?1:0) == status){ return 0; } }
-
     return checker(number/10, number_original, ((number%10 >= ((number/10)%10))?1:0));
 }
 
@@ -17,11 +15,8 @@ int main()
     while((check = scanf("%d", &number)))
     {
         int status = (((number%10) <= ((number/10)%10))?1:0);
-
-        if(number>=10){  *(storage+i) = checker(number, number, status); i++; //size=i;
-
+        if(number>=10){  *(storage+i) = checker(number, number, status); i++;
         if(i>=size){ size*=2; void* temp_storage = realloc(storage, size * sizeof(int)); storage = temp_storage; } }
-        //void *temp_storage = realloc(storage, size * sizeof(int)); storage = temp_storage; }
     }
 
     for(unsigned int j=0; j<i; j++){ if(*(storage+j) != 0) printf("%d\n", *(storage+j)); }
