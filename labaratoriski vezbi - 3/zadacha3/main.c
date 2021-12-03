@@ -4,18 +4,16 @@
 
 int main()
 {
-    int index, index2=0, tmp_index=0, cnt=0; scanf("%d", &index);
+    int number_1, number_2=0, cnt=0; scanf("%d", &number_1);
+    int digits = ((number_1==0)?1:log10(number_1)+1);
 
-    for(int i=3; i>=0; i--){
-        int mod=0, power_of=pow(10,i), num=(index/power_of)%10;
-        if(num == 5){ cnt++; mod=1; }
-        index2 = index2 + power_of * (num+mod); }
+    while(digits){ int digit = number_1 / (int)pow(10,digits-1) % 10;
+    if(digit==5){ cnt++; digit+=1; } number_2 = number_2 * 10 + digit; digits--; }
 
-    if(cnt>=2){
-    tmp_index=index; if(index2>index){ index=index2; index2 = tmp_index; }
-    printf("%.04f%%", ((index - index2) / (float)tmp_index) * 100);}
+    if(cnt<2){ printf("Error"); return 0; }
 
-    else { printf("Error"); }
+    int tmp=number_1; if(number_1<number_2){ number_1 = number_2; number_2 = tmp; }
+    printf("%.04lf%%",  ((number_1 - number_2) / (float)tmp) * 100 );
 
     return 0;
 }

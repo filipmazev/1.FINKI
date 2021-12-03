@@ -1,25 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 int main()
 {
-    int n, bigger, smaller, max=0; scanf("%d", &n);
-    int A[n];
+    int n, max=0; scanf("%d", &n); int save[n];
 
-    for(int i=0; i<n; i++){ scanf("%d", &A[i]);  }
-
-    for(int i=0; i<n-1; i++)
-    {
-        for(int j=i; j<n; j++){
-            bigger = A[i]; smaller = A[j];
-            if(A[j] > A[i]){ bigger = A[j]; smaller = A[i]; }
-            if( (bigger-smaller) > max ){ max = (bigger-smaller); } }
-
+    for(int i=0; i<n; i++){ scanf("%d", &save[i]);
         for(int j=i; j>=0; j--){
-            bigger = A[i]; smaller = A[j];
-            if(A[j] > A[i]){ bigger = A[j]; smaller = A[i]; }
-            if( (bigger-smaller) > max ){ max = (bigger-smaller); }}
-    }
+            if(abs(save[j] - save[i]) > max ){ max = abs(save[i] - save[j]); } } }
 
     printf("Najgolema razlika: %d", max);
 

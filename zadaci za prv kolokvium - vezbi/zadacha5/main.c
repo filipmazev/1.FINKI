@@ -2,14 +2,14 @@
 
 int main()
 {
-    int num1, num2, i=1;
-    scanf("%d %d", &num1, &num2); if(num1 <=0 || num2 <= 0){ printf("Invalid input"); return 0; }
+    int num_1, num_2, i=1; scanf("%d %d", &num_1, &num_2);
+    if(num_1 <=0 || num_2 <=0 ){ printf("Invalid input"); return 0; }
 
-    int temp_num; if(num2>num1){ temp_num=num1; num1=num2; num2=temp_num; }
+    if(num_2>num_1) { int temp=num_1; num_1=num_2; num_2=temp; }
 
-    while(num2){ if(i%2 == 0) { if(num1%10 != num2%10) { printf("NE"); return 0; } num2/=10; } num1/=10; i++; }
+    while(num_2){ if(i%2==0){ if(num_2%10 != num_1%10) { printf("NE"); return 0; } num_2/=10; } num_1/=10; i++; }
 
-    printf("PAREN");
-
-    return 0;
+    printf("PAREN"); return 0;
 }
+
+

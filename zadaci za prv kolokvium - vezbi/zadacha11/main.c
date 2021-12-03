@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int checker(int number, int number_original, int status)
 {
@@ -11,15 +12,15 @@ int checker(int number, int number_original, int status)
 
 int main()
 {
-    size_t size=1; int number, check=1, *storage = calloc(size, sizeof(int)); unsigned int i=0;
+    size_t size=100; int number, check=1, *storage = calloc(size, sizeof(int)); unsigned int i=0;
 
     while((check = scanf("%d", &number)))
     {
         int status = (((number%10) >= 5)?1:0);
 
-        if(number>10){ *(storage+i) = checker(number, number, status); i++; size=i;
+        if(number>10){ *(storage+i) = checker(number, number, status); i++;
 
-        storage = realloc(storage, size * sizeof(int)); }
+        if(i>=size) { size*=2; void *temp_storage = realloc(storage, size * sizeof(int)); storage=temp_storage; } }
     }
 
     for(unsigned int j=0; j<i; j++){ if(*(storage+j) != 0) printf("%d\n", *(storage+j)); } free(storage);

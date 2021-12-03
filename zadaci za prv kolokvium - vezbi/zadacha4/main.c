@@ -1,18 +1,15 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include<ctype.h>
+#include <ctype.h>
 
 int main()
 {
-    char character;
-    int sum=0, number=0;
+    char c='.'; int broj=0, sum=0;
 
-    while (character != '!')
+    while(c!='!')
     {
-        scanf("%c", &character);
-
-        if(isdigit(character)) { number = number * 10 + (character - '0'); }
-        else { sum+=number; number=0; }
+        scanf("%c", &c);
+        if(isdigit(c)){ broj = broj*10 + c - '0';  }
+        else { sum+=broj; broj = 0; }
     }
 
     printf("%d", sum);
