@@ -7,7 +7,7 @@ int main()
 {
     int m,n, cnt=0; scanf("%d %d", &m, &n);
 
-    for(int i=m; i<n; i++){
+    for(int i=m; i<=n; i++){
     if( i+flip(i) <= i*2 ){ printf("%d\n",i); cnt++; }}
 
     printf("Vkupno: %d",cnt); cnt++;
