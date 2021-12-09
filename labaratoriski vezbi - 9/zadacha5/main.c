@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-void test(char *text, char letter)
+void letterFrequency (char *text, char letter)
 {
     int i=0; int cnt_lower=0, cnt_upper=0;
 
@@ -20,7 +20,7 @@ int main()
     while(character != '\n'){ scanf("%c", &character); *(text+i) = character; i++;
     if(i>size){ size*=2; void *temp = realloc(text, size * sizeof(char)); text = temp; } }
 
-    char letter; scanf("%c", &letter); test(text, letter);
+    char letter; scanf("%c", &letter); letterFrequency(text, letter);
 
     return 0;
 }
