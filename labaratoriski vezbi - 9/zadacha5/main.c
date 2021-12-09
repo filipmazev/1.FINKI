@@ -9,7 +9,6 @@ void test(char *text, char letter)
     if(isalpha(*(text+(int)i))){ if(tolower(letter) == *(text+(int)i)){ cnt_lower++; }
     if(toupper(letter) == *(text+(int)i)){ cnt_upper++; } } i++; }
 
-    printf("%d %d\n", cnt_lower, i);
     printf("%c -> %.3f%%\n", tolower(letter), (cnt_lower/(float)i)*100);
     printf("%c -> %.3f%%\n", toupper(letter), (cnt_upper/(float)i)*100);
 }
