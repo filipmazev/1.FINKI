@@ -26,6 +26,15 @@ void normalize(float *arr, int n)
         x = (x-mini) / (maxi - mini); arr[i] = x; }
 }
 
+void sort (float *arr, int n)
+{
+    float temp;
+    for(int i=0; i<n; i++){
+        for(int j=0; j<n-i-1; j++){
+            if(arr[j] < arr[j+1]){
+        temp = arr[j]; arr[j] = arr[j+1]; arr[j+1] = temp; } } }
+}
+
 int main ()
 {
     float niza [200];
@@ -42,6 +51,7 @@ int main ()
     printf("MIN -> %.3f\n", min(niza,n));
 
     normalize(niza,n);
+    sort(niza,n);
 
     for (i=0; i<n; i++)
     {

@@ -5,7 +5,7 @@ void letterFrequency (char *text, char letter)
 {
     unsigned int i=0, cnt_lower=0, cnt_upper=0;
 
-    while(*(text+i) != '\n'){
+    while(*(text+i) != '\0'){
     if(isalpha(*(text+i))){ if(tolower(letter) == *(text+i)){ cnt_lower++; }
     if(toupper(letter) == *(text+i)){ cnt_upper++; } } i++; }
 
