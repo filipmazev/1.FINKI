@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
 
 int main()
 {
-    size_t size = ((int)'Z' - (int)'A') + 1; char Alphabet[size];
-    char character; int move, position; scanf("%c %d", &character, &move);
+    int move, limit = ((int)'z' - (int)'a') + 1;
 
-    for(int i=0; i<size; i++){
-        Alphabet[i] = (char)((int)'A' + i);
-        if(Alphabet[i] == character){ position = i; } }
+    char character; scanf("%c", &character); scanf("%d", &move);
 
-    while(position+move>size){ move -= size; }
-
-    printf("%c", Alphabet[position+move]); return 0;
+    int pos = (((int)toupper(character) - (int)'A') + move) + 1; while(pos>limit){ pos-=limit; }
+    int start = ((int)'A') - 1; if(islower(character)){ start = ((int)'a') - 1; }
+    printf("%c", (char) (start+pos)); return 0;
 }

@@ -1,8 +1,5 @@
 #include <stdio.h>
-#include <string.h>
 #include <math.h>
-#include <ctype.h>
-#define MAX 100
 
 void wtf()
 {
