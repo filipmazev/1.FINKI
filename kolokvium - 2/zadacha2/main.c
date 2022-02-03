@@ -21,7 +21,7 @@ int main()
         for(int i=0; i<strlen(temp); i++){ if(isalnum(temp[i])){ b++; } }
 
         char *word = strtok(temp, " ,-'");
-        while(word!=NULL){ w++; word = strtok(NULL, " ,-'"); }
+        while(word!=NULL){ if(!isspace(word[0])) { w++; } word = strtok(NULL, " ,-'"); }
 
         printf("%d, %d: ", b, w); printf("%s", string);
     }
