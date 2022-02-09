@@ -12,16 +12,18 @@ void flipString(char *string)
 
 void revertString(char *string_1, char *string_2, char *comparator)
 {
-    int i=0, comp=0; char to_print[1024];
+    int i=0, flag=0, comp=0; char to_print[1024];
     for(int i=0; i<strlen(comparator); i++){ *(comparator+i) = tolower(*(comparator+i)); }
     if(!strcmp(comparator, "pomal")) { comp=1; } else if(strcmp(comparator, "pogolem")){ printf("Invalid comparator\n"); return 0; }
 
-    for(int i=0; i<strlen(string_1) || i<strlen(string_2); i++ ){
-        if(!comp){ if( tolower(*(string_1+i)) > tolower(*(string_2+i))){ strcpy(to_print, string_1); break; }
-        if(tolower(*(string_2+i) > tolower(*(string_1+i)))){ strcpy(to_print, string_2); break; } }
+    while(!flag)
+    {
+        if(!comp){ if( tolower(*(string_1+i)) > tolower(*(string_2+i))){ flag=1; strcpy(to_print, string_1); }
+        if(tolower(*(string_2+i) > tolower(*(string_1+i)))){ flag=1; strcpy(to_print, string_2); } }
 
-        else{ if( tolower(*(string_1+i)) < tolower(*(string_2+i))){ strcpy(to_print, string_1); break; }
-        if(tolower(*(string_2+i) < tolower(*(string_1+i)))){ strcpy(to_print, string_2); break; } } i++; }
+        else{ if( tolower(*(string_1+i)) < tolower(*(string_2+i))){ flag=1; strcpy(to_print, string_1); }
+        if(tolower(*(string_2+i) < tolower(*(string_1+i)))){ flag=1; strcpy(to_print, string_2); } } i++;
+    }
 
     printf("%s\n", to_print);
 }
