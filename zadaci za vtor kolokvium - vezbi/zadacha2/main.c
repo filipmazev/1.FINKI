@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
-
-int pow_div(int n){ if(n<10){ return 1; } return 10 * pow_div(n/10); }
+#include <string.h>
 
 void wtf()
 {
@@ -12,14 +11,18 @@ void wtf()
 
 int main()
 {
-    wtf(); FILE *read = fopen("broevi.txt", "r"); int number=0, cnt=0, max=0, max_number=0, num_org;
+    wtf(); FILE *read = fopen("broevi.txt", "r"); int max=0, flag=0, size=1024; char string[size];
 
-    while(!feof(read))
+    while(fgets(string, size, read) != NULL)
     {
-        char character = fgetc(read);
-        if(isdigit(character)){ number = number * 10 + character - '0'; num_org=number; }
-        else{ if(cnt){ int digit = (number/pow_div(number));
-                if(digit > max){ max=digit; max_number = number; } } number=0; cnt++; }
-        if(character == '\n' && num_org){ printf("%d \n", max_number); cnt=0; max=0; }
-    } return 0;
+        char temp[size], number[size]; strcpy(temp, string); char *num = strtok(temp, " ");
+
+        while(num!=NULL){
+            if((int)(*(num+0) - '0')>max && flag){ max = (int)(*(num+0) - '0'); strcpy(number, num); number[strcspn(number,"\n")] = 0; }
+            if(!flag){ flag=1;} num = strtok(NULL, " "); }
+
+        if(*(string+0) != '0'){ puts(number); max = 0, flag=0; }
+    }
+
+    fclose(read); return 0;
 }
