@@ -1,45 +1,40 @@
 #include <iostream>
 #include <cstring>
-#include <vector>
 using namespace std;
 
-enum tip {pop, rap, rok};
+enum type {pop, rap, rok};
 
 class Song
 {
 private:
-    char song_name[1024];
-    int lenght; tip type;
+    char *song_name; int lenght; type song_type;
 public:
-    Song() = default; Song(char n[1024], int l, tip t){ strcpy(song_name, n); lenght = l; type = t; } ~Song(){};
+    Song(){ song_name = nullptr; };
+    Song(char *s_n, int l, type s_t){
+    song_name = new char[(size_t)(strlen(s_n)+1)]; strcpy(song_name,s_n); lenght = l; song_type = s_t; }
+    ~Song(){};
+
     void print(){ cout<<"\""<<song_name<<"\"-"<<lenght<<"min"<<endl; }
-    int getLenght(){ return lenght; }
-    tip getType(){ return type; }
+    int getLenght(){ return lenght; } type getType(){ return song_type; }
 };
 
 class CD
 {
 private:
-    vector<Song> arr;
-    int song_amm, max_lenght;
+    Song arr[10]; int song_amm, max_lenght;
 public:
-    CD() = default; CD(int max_l){ max_lenght = max_l; } ~CD(){};
+    CD() = default; CD(int max_l){ max_lenght = max_l; song_amm=0; } ~CD(){};
 
     Song getSong(int i){ return arr[i]; }
 
-    void addSong(Song s)
-    {
-        int total=0; for(int i=0; i<arr.size(); i++){ total+=arr[i].getLenght(); }
-        if(arr.size()<10 && ((total+s.getLenght()) < max_lenght)){ arr.push_back(s); }
-    }
+    void addSong(Song s){
+        int total=0; for(int i=0; i<song_amm; i++){ total+=arr[i].getLenght(); }
+        if(song_amm<10 && ((total+s.getLenght()) < max_lenght)){ arr[song_amm++] = s; } }
 
-    void printByType(tip type)
-    {
-        for(int i=0; i<arr.size(); i++){
-            if((tip)arr[i].getType() == (tip)type){ getSong(i).print(); } }
-    }
+    void printByType(type t){
+    for(int i=0; i<song_amm; i++){ if((type)arr[i].getType() == (type)t){ arr[i].print(); } } }
 
-    int getSize(){ return (int)arr.size(); }
+    int getSize(){ return song_amm; }
 };
 
 int main()
@@ -50,7 +45,7 @@ int main()
     {
         cout<<"===== Testiranje na klasata Pesna ======"<<endl;
         cin>>song_name>>length>>what_type;
-        Song s(song_name,length,(tip)what_type);
+        Song s(song_name,length,(type)what_type);
 		s.print();
     }
 
@@ -61,7 +56,7 @@ int main()
 			for (int i=0;i<n;i++)
 			{
                 cin>>song_name>>length>>what_type;
-				Song s(song_name,length,(tip)what_type);
+				Song s(song_name,length,(type)what_type);
 				favourite.addSong(s);
 			}
         	for (int i=0; i<n; i++){ (favourite.getSong(i)).print(); }
@@ -74,7 +69,7 @@ int main()
 			for (int i=0;i<n;i++)
 			{
                 cin>>song_name>>length>>what_type;
-				Song s(song_name,length,(tip)what_type);
+				Song s(song_name,length,(type)what_type);
 				favourite.addSong(s);
 			}
 
@@ -88,11 +83,11 @@ int main()
 			for (int i=0;i<n;i++)
 			{
                 cin>>song_name>>length>>what_type;
-				Song s(song_name,length,(tip)what_type);
+				Song s(song_name,length,(type)what_type);
 				favourite.addSong(s);
 			}
         cin>>what_type;
-        favourite.printByType((tip)what_type);
+        favourite.printByType((type)what_type);
     }
 
     else if(testCase == 5)
@@ -102,10 +97,10 @@ int main()
 			for (int i=0;i<n;i++)
 			{
 				cin>>song_name>>length>>what_type;
-				Song s(song_name,length,(tip)what_type);
+				Song s(song_name,length,(type)what_type);
 				favourite.addSong(s);
 			}
         cin>>what_type;
-        favourite.printByType((tip)what_type);
+        favourite.printByType((type)what_type);
     }
 }
