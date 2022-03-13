@@ -48,7 +48,7 @@ public:
 
 int main()
 {
-    Mountain_Lodge p; char name_of_lodge[15], location_of_lift[30], class_type; int price[12], daily_lift_ticket; bool has_lift;
+    Mountain_Lodge m; char name_of_lodge[15], location_of_lift[30], class_type; int price[12], daily_lift_ticket; bool has_lift;
     std::cin>>name_of_lodge; for (int i=0;i<2;i++){ std::cin>>price[i]; } std::cin>>class_type>>has_lift;
 
     if (has_lift)
@@ -56,19 +56,19 @@ int main()
         std::cin>>location_of_lift>>daily_lift_ticket;
         Mountain_Lodge ml(name_of_lodge,price,class_type,has_lift);
         Lift l(location_of_lift,daily_lift_ticket);
-        ml.setLift(l); p=ml;
+        ml.setLift(l); m=ml;
     }
 
-    else { Mountain_Lodge *tmp=new Mountain_Lodge(name_of_lodge,price,class_type,has_lift); p=*tmp; }
+    else { Mountain_Lodge *tmp=new Mountain_Lodge(name_of_lodge,price,class_type,has_lift); m=*tmp; }
 
-    --p; --p; int total_price, day, month; std::cin>>day>>month;
+    --m; --m; int total_price, day, month; std::cin>>day>>month;
 
     try
     {
         if (day > 31 || day <= 0 || month > 12 || month <= 0){ throw 404; }
-        else { p.calculate_price(day,month,total_price);
-        std::cout<<"Informacii za PlaninarskiDomot:"<<std::endl<<p;
-        if (p<='D'){ std::cout<<"Planinarskiot dom za koj se vneseni informaciite ima klasa poniska ili ista so D\n"; }
+        else { m.calculate_price(day,month,total_price);
+        std::cout<<"Informacii za PlaninarskiDomot:"<<std::endl<<m;
+        if (m<='D'){ std::cout<<"Planinarskiot dom za koj se vneseni informaciite ima klasa poniska ili ista so D\n"; }
         std::cout<<"Cenata za "<<day<<"."<<month<<" e "<<total_price; }
     }
 
