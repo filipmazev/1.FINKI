@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstring>
-using namespace std;
 
 enum type {pop, rap, rok};
 
@@ -14,7 +13,7 @@ public:
     song_name = new char[(size_t)(strlen(s_n)+1)]; strcpy(song_name,s_n); lenght = l; song_type = s_t; }
     ~Song(){};
 
-    void print(){ cout<<"\""<<song_name<<"\"-"<<lenght<<"min"<<endl; }
+    void print(){ std::cout<<"\""<<song_name<<"\"-"<<lenght<<"min"<<std::endl; }
     int getLenght(){ return lenght; } type getType(){ return song_type; }
 };
 
@@ -39,23 +38,23 @@ public:
 
 int main()
 {
-    int testCase; cin>>testCase; int n, length, what_type; char song_name[50];
+    int testCase; std::cin>>testCase; int n, length, what_type; char song_name[50];
 
 	if(testCase == 1)
     {
-        cout<<"===== Testiranje na klasata Pesna ======"<<endl;
-        cin>>song_name>>length>>what_type;
+        std::cout<<"===== Testiranje na klasata Pesna ======"<<std::endl;
+        std::cin>>song_name>>length>>what_type;
         Song s(song_name,length,(type)what_type);
 		s.print();
     }
 
     else if(testCase == 2)
     {
-        cout<<"===== Testiranje na klasata CD ======"<<endl;
-		CD favourite(20); cin>>n;
+        std::cout<<"===== Testiranje na klasata CD ======"<<std::endl;
+		CD favourite(20); std::cin>>n;
 			for (int i=0;i<n;i++)
 			{
-                cin>>song_name>>length>>what_type;
+                std::cin>>song_name>>length>>what_type;
 				Song s(song_name,length,(type)what_type);
 				favourite.addSong(s);
 			}
@@ -64,11 +63,11 @@ int main()
 
 	else if(testCase == 3)
 	{
-        cout<<"===== Testiranje na metodot dodadiPesna() od klasata CD ======"<<endl;
-		CD favourite(20); cin>>n;
+        std::cout<<"===== Testiranje na metodot dodadiPesna() od klasata CD ======"<<std::endl;
+		CD favourite(20); std::cin>>n;
 			for (int i=0;i<n;i++)
 			{
-                cin>>song_name>>length>>what_type;
+                std::cin>>song_name>>length>>what_type;
 				Song s(song_name,length,(type)what_type);
 				favourite.addSong(s);
 			}
@@ -78,29 +77,29 @@ int main()
 
     else if(testCase == 4)
     {
-        cout<<"===== Testiranje na metodot pecatiPesniPoTip() od klasata CD ======"<<endl;
-		CD favourite(20); cin>>n;
+        std::cout<<"===== Testiranje na metodot pecatiPesniPoTip() od klasata CD ======"<<std::endl;
+		CD favourite(20); std::cin>>n;
 			for (int i=0;i<n;i++)
 			{
-                cin>>song_name>>length>>what_type;
+                std::cin>>song_name>>length>>what_type;
 				Song s(song_name,length,(type)what_type);
 				favourite.addSong(s);
 			}
-        cin>>what_type;
+        std::cin>>what_type;
         favourite.printByType((type)what_type);
     }
 
     else if(testCase == 5)
     {
-        cout<<"===== Testiranje na metodot pecatiPesniPoTip() od klasata CD ======"<<endl;
-		CD favourite(20); cin>>n;
+        std::cout<<"===== Testiranje na metodot pecatiPesniPoTip() od klasata CD ======"<<std::endl;
+		CD favourite(20); std::cin>>n;
 			for (int i=0;i<n;i++)
 			{
-				cin>>song_name>>length>>what_type;
+				std::cin>>song_name>>length>>what_type;
 				Song s(song_name,length,(type)what_type);
 				favourite.addSong(s);
 			}
-        cin>>what_type;
+        std::cin>>what_type;
         favourite.printByType((type)what_type);
     }
 }

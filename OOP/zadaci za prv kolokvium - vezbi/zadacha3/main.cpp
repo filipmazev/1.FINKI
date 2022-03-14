@@ -1,6 +1,5 @@
 #include <iostream>
 #include <cstring>
-using namespace std;
 
 class StockRecord
 {
@@ -27,9 +26,9 @@ public:
         buy_price = adder.buy_price; cur_price = adder.cur_price; stock_ammount = adder.stock_ammount;
     }
 
-    friend ostream &operator<<(ostream &output, const StockRecord &adder)
+    friend std::ostream &operator<<(std::ostream &output, const StockRecord &adder)
     {
-        output<<adder.name<<" "<<adder.stock_ammount<<" "<<adder.buy_price<<" "<<adder.cur_price<<" "<<adder.profit()<<endl;
+        output<<adder.name<<" "<<adder.stock_ammount<<" "<<adder.buy_price<<" "<<adder.cur_price<<" "<<adder.profit()<<std::endl;
         return output;
     }
 };
@@ -49,58 +48,58 @@ public:
 
     Client &operator+=(StockRecord &other){ arr[arr_n]=other; arr_n++; return *this; }
 
-    friend ostream &operator<<(ostream &output, Client &adder)
+    friend std::ostream &operator<<(std::ostream &output, Client &adder)
     {
-        output<<adder.wallet_ID<<" "<<adder.totalValue()<<endl;
-        for(int i=0; i<adder.arr_n; i++){ output<<adder.arr[i].getName()<<" "<<adder.arr[i].getStockAmmount()<<" "<<adder.arr[i].getBuy_Price()<<" "<<adder.arr[i].getCur_Price()<<" "<<adder.arr[i].profit()<<endl; }
+        output<<adder.wallet_ID<<" "<<adder.totalValue()<<std::endl;
+        for(int i=0; i<adder.arr_n; i++){ output<<adder.arr[i].getName()<<" "<<adder.arr[i].getStockAmmount()<<" "<<adder.arr[i].getBuy_Price()<<" "<<adder.arr[i].getCur_Price()<<" "<<adder.arr[i].profit()<<std::endl; }
         return output;
     }
 };
 
 int main()
 {
-    int test; cin>>test;
+    int test; std::cin>>test;
 
     if(test == 1)
     {
     	double price;
-        cout<<"=====TEST NA KLASATA StockRecord====="<<endl;
+        std::cout<<"=====TEST NA KLASATA StockRecord====="<<std::endl;
         StockRecord sr("1", "Microsoft", 60.0, 100);
-        cout<<"Konstruktor OK"<<endl; cin>>price;
+        std::cout<<"Konstruktor OK"<<std::endl; std::cin>>price;
         sr.setNewPrice(price);
-        cout<<"SET metoda OK"<<endl;
+        std::cout<<"SET metoda OK"<<std::endl;
     }
 
     else if(test == 2)
     {
-        cout<<"=====TEST NA METODITE I OPERATOR << OD KLASATA StockRecord====="<<endl;
-    	char id[12], company[50]; double price, newPrice; int n, shares; cin>>n;
+        std::cout<<"=====TEST NA METODITE I OPERATOR << OD KLASATA StockRecord====="<<std::endl;
+    	char id[12], company[50]; double price, newPrice; int n, shares; std::cin>>n;
         for(int i=0; i<n; i++)
         {
-        	cin>>id>>company>>price>>newPrice>>shares;
+        	std::cin>>id>>company>>price>>newPrice>>shares;
             StockRecord sr(id, company, price, shares);
             sr.setNewPrice(newPrice);
-            cout<<sr.value()<<endl<<sr;
+            std::cout<<sr.value()<<std::endl<<sr;
         }
     }
 
     else if(test == 3)
     {
-    	cout<<"=====TEST NA KLASATA Client====="<<endl;
+    	std::cout<<"=====TEST NA KLASATA Client====="<<std::endl;
         char companyID[12], companyName[50], clientName[50];
         int clientID, n, shares; double oldPrice, newPrice; bool flag = true;
-        cin>>clientName>>clientID>>n; Client c(clientName, clientID);
-        cout<<"Konstruktor OK"<<endl;
+        std::cin>>clientName>>clientID>>n; Client c(clientName, clientID);
+        std::cout<<"Konstruktor OK"<<std::endl;
 
         for(int i=0; i<n; i++)
         {
-            cin>>companyID>>companyName>>oldPrice>>newPrice>>shares;
+            std::cin>>companyID>>companyName>>oldPrice>>newPrice>>shares;
         	StockRecord sr(companyID, companyName, oldPrice, shares);
             sr.setNewPrice(newPrice); c += sr;
-            if(flag){ cout<<"Operator += OK"<<endl; flag = false; }
+            if(flag){ std::cout<<"Operator += OK"<<std::endl; flag = false; }
         }
 
-        cout<<c<<"Operator << OK"<<endl;
+        std::cout<<c<<"Operator << OK"<<std::endl;
     }
 
     return 0;
