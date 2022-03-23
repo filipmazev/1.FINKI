@@ -9,16 +9,20 @@ struct _stack
 
     void push(int element)
     {
+        if(!isFull()){
         int *tmp = new int[this->num+1];
         for(int i=0; i<this->num; i++){ tmp[i] = this->arr[i]; }
-        tmp[this->num++]=element; delete[] this->arr; this->arr = tmp;
+        tmp[this->num++]=element; delete[] this->arr; this->arr = tmp; }
+        else { std::cout<<"Magacinot e poln"<<std::endl; }
     }
 
     void pop()
     {
+        if(!isEmpty()){
         int *tmp = new int[--this->num];
         for(int i=0; i<this->num; i++){ tmp[i] = this->arr[i]; }
-        delete[] this->arr; this->arr = tmp;
+        delete[] this->arr; this->arr = tmp; }
+        else { std::cout<<"Magacinot e prazen"<<std::endl; }
     }
 
     _stack &operator = (_stack &adder)
@@ -38,13 +42,14 @@ struct _stack
 void func(_stack &s)
 {
     _stack tmp; tmp.init();
-    for(int i=0; i<s.size(); i++){ int sum = s.arr[i] + s.arr[s.size()-i-1]; sum>9?9:sum; tmp.push(sum); }
+    for(int i=0; i<s.size(); i++)
+    { int sum = s.arr[i] + s.arr[s.size()-i-1]; sum=sum>9?9:sum; tmp.push(sum); }
     s = tmp;
 }
 
 int main()
 {
-    _stack s; int no, element, e; s.init();
+    _stack s; int no, element; s.init();
     std::cout<<"Vnesete koj broj da se proveri:"; std::cin>>no;
 
     while(no!=0){ element = no%10; no/=10; s.push(element); }
