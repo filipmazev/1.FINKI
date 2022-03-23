@@ -23,8 +23,8 @@ struct _stack
 
     _stack &operator = (_stack &adder)
     {
-        delete[] this->arr; this->arr = new int[adder.size()];
-        for(int i=0; i<adder.size(); i++){ this->arr[i] = adder.arr[i]; }
+        this->num = adder.size(); delete[] this->arr; this->arr = new int[num];
+        for(int i=0; i<num; i++){ this->arr[i] = adder.arr[i]; }
         return *this;
     }
 
@@ -37,8 +37,8 @@ struct _stack
 
 void func(_stack &s)
 {
-    _stack tmp; tmp.init(); int sum=0;
-    for(int i=0; i<s.size(); i++){ sum = s.arr[i] + s.arr[s.size()-i-1]; sum>9?9:sum; tmp.push(sum); }
+    _stack tmp; tmp.init();
+    for(int i=0; i<s.size(); i++){ int sum = s.arr[i] + s.arr[s.size()-i-1]; sum>9?9:sum; tmp.push(sum); }
     s = tmp;
 }
 
