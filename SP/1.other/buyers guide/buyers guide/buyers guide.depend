@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1639164213 source:c:\users\filip\documents\github\1.finki\1.other\buyers guide\buyers guide\main.cpp
+	<iostream>
+	<fstream>
+	<vector>
+	<string.h>
+	<sstream>
+	<algorithm>
+

@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1642803106 source:c:\users\filip\documents\github\1.finki\vtor kolokvium - vezbi\o dynamic array\zadacha4 - w\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+

@@ -1,0 +1,84 @@
+# depslib dependency file v1.0
+1639527016 source:c:\users\filip\documents\github\1.finki\1.other\darts probability tester\main.cpp
+	<iostream>
+	<ctime>
+	<windows.h>
+
+1639527016 source:c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\main.cpp
+	<iostream>
+	<ctime>
+	<windows.h>
+
+1638098520 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\ckcrypt2.h
+	"chilkatDefs.h"
+	"CkString.h"
+	"CkClassWithCallbacks.h"
+
+1622294700 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\chilkatdefs.h
+	"ck_inttypes.h"
+	"SystemTime.h"
+	"FileTime.h"
+
+1613816074 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\ck_inttypes.h
+	<inttypes.h>
+	<stdint.h>
+	<cstdint>
+	<inttypes.h>
+
+1613816074 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\systemtime.h
+
+1613816074 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\filetime.h
+
+1613816068 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\ckstring.h
+	"chilkatDefs.h"
+	"CkObject.h"
+
+1613816062 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\ckobject.h
+	"chilkatDefs.h"
+
+1613816054 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\ckclasswithcallbacks.h
+	"CkMultiByteBase.h"
+
+1613816060 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\include\ckmultibytebase.h
+	"CkObject.h"
+
+1418688071 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\pcg-cpp-0.98\include\pcg_random.hpp
+	<cinttypes>
+	<cstddef>
+	<cstdlib>
+	<cstring>
+	<cassert>
+	<limits>
+	<iostream>
+	<type_traits>
+	<utility>
+	<locale>
+	<new>
+	<stdexcept>
+	"pcg_extras.hpp"
+
+1418688071 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\pcg-cpp-0.98\include\pcg_extras.hpp
+	<cinttypes>
+	<cstddef>
+	<cstdlib>
+	<cstring>
+	<cassert>
+	<limits>
+	<iostream>
+	<type_traits>
+	<utility>
+	<locale>
+	<iterator>
+	<utility>
+	<cxxabi.h>
+	"pcg_uint128.hpp"
+
+1418688071 c:\users\filip\documents\github\main\c & c++\1.finki\1.other\darts probability tester\pcg-cpp-0.98\include\pcg_uint128.hpp
+	<cstdint>
+	<cstdio>
+	<cassert>
+	<climits>
+	<utility>
+	<initializer_list>
+	<type_traits>
+

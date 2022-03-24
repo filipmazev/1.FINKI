@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1640272833 source:c:\users\filip\documents\github\1.finki\zadaci za vtor kolokvium - vezbi\zadacha7\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
