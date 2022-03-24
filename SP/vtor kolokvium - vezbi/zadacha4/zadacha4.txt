@@ -1,0 +1,16 @@
+Da se napise programa vo koja ke se procita tekstualna niza od tastatura. Za tekstualnata niza se znae deka e sostavena od tocno dve recenici. 
+Vo sekoja od recenicite ili nema licni iminja ili ima nepoznat, no ist broj na licni iminja. Licnite iminja se zborovi koi pocnuvaat so golema
+bukva i ne se na pocetokot od recenicata. Dokolku vo recenicite nema licni iminja programata treba da ja pojavi porakata za greska. 
+Vo sprotivno, programata treba da napravi zamena na site licni iminja pomegju dvete recenici, t.e. prvoto licno ime vo prvata recenica da se zameni so prvoto licno ime vo vtorata 
+recenica, vtoroto licno ime vo prvata recenica da se zameno so vtoroto licno ime vo vtorata recenica, itn. Na krajot programata treba da ja prikaze promenetata sodzrina na tekstualnata niza.
+
+Vlez_tekstualna_niza = "Istrazhuvanjeto beshe sprovedeno odve studenti na medicinskiot fakultet, Natalija i Stefanija. Vo ramkite na istrazhuvanjeto bea vkluceni i dve doktorki: Verica od instituot za kardiologija i 
+Angelina od institutot za torakalna hirurgija."
+
+Prvata recenica ima: Natalija i Stefanija
+Vtorata recenica ima: Verica i Angelina
+
+Natalija i Verica treba da gi zamenat mestata, Angelina i Stefanija treba da gi zamenat mestata /
+
+Izlez_tekstualna_niza = "Istrazhuvanjeto beshe sprovedeno odve studenti na medicinskiot fakultet, Verica i Angelina. Vo ramkite na istrazhuvanjeto bea vkluceni i dve doktorki: Natalija od instituot za kardiologija i 
+Stefanija od institutot za torakalna hirurgija."
