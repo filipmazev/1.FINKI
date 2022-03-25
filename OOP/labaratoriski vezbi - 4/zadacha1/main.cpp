@@ -3,13 +3,19 @@
 class List
 {
 private:
-    int *arr, num;
+    int *arr{nullptr}, num{0};
 public:
-    List(){ arr=nullptr; num=0; }
-    List(int *arr, int num){ this->num=num; this->arr = new int[num]; for(int i=0; i<num; i++){ this->arr=arr; } }
-    List(const List &other){ this->num=other.num; this->arr = new int[num]; for(int i=0; i<num; i++){ this->arr[i]=other.arr[i]; } }
-    List &operator = (const List &other){ this->num=other.num; this->arr = new int[num]; for(int i=0; i<num; i++){ this->arr[i]=other.arr[i]; } return *this; }
-    ~List(){ if(this->arr!=nullptr){ this->arr = nullptr; delete[] arr; } }
+    List(){ this->arr=nullptr; this->num=0; }
+
+    List(int *arr, int num):List(){ this->num=num; this->arr = new int[this->num]; for(int i=0; i<this->num; i++){ this->arr=arr; } }
+
+    List(const List &other){ if(this != &other){ this->num=other.num;
+    delete[] this->arr; this->arr = new int[num]; for(int i=0; i<num; i++){ this->arr[i]=other.arr[i]; } } }
+
+    List &operator = (const List &other){ if(this != &other){ this->num=other.num;
+    delete[] this->arr; this->arr = new int[num]; for(int i=0; i<num; i++){ this->arr[i]=other.arr[i]; } } return *this; }
+
+    ~List(){}
 
     int sum(){ int summery=0; for(int i=0; i<this->num; i++){ summery+=this->arr[i]; } return summery; }
     double average(){ return sum()/(double)this->num; }
@@ -21,13 +27,20 @@ public:
 class ListContainer
 {
 private:
-    List *l_arr; int num, failed;
+    List *l_arr{nullptr}; int num{0}, failed{0};
 public:
     ListContainer(){ this->num=0; this->failed=0; this->l_arr = nullptr; }
-    ListContainer(List *l_arr, int num){ this->num=num; this->l_arr = new List[this->num]; for(int i=0; i<num; i++){ this->l_arr[i] = l_arr[i]; } }
-    ListContainer(const ListContainer &other){ this->num=other.num; this->l_arr=new List[num]; for(int i=0; i<num; i++){ this->l_arr[i] = other.l_arr[i]; } this->failed=other.failed; }
-    ListContainer &operator = (const ListContainer &other){ this->num=other.num; this->l_arr=new List[num]; for(int i=0; i<num; i++){ this->l_arr[i] = other.l_arr[i]; } this->failed=other.failed; return *this; }
-    ~ListContainer(){ if(this->l_arr!=nullptr){ this->l_arr = nullptr; delete[] l_arr; } }
+
+    ListContainer(List *l_arr, int num):ListContainer(){ this->num=num; this->l_arr = new List[this->num]; for(int i=0; i<num; i++){ this->l_arr[i] = l_arr[i]; } }
+
+    ListContainer(const ListContainer &other){ if(this != &other) { this->num=other.num;
+    delete[] this->l_arr; this->l_arr=new List[num]; for(int i=0; i<num; i++){ this->l_arr[i] = other.l_arr[i]; } this->failed=other.failed; } }
+
+    ListContainer &operator = (const ListContainer &other){ if(this != &other) {
+    this->num=other.num; delete[] this->l_arr; this->l_arr=new List[num]; for(int i=0; i<num; i++){ this->l_arr[i] = other.l_arr[i]; }
+    this->failed=other.failed; } return *this; }
+
+    ~ListContainer(){ delete[] this->l_arr; this->l_arr=nullptr; }
 
     void addNewList(List &l)
     {
