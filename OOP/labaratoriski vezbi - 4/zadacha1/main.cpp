@@ -7,7 +7,7 @@ private:
 public:
     List(){ this->arr=nullptr; this->num=0; }
 
-    List(int *arr, int num):List(){ this->num=num; this->arr = new int[this->num]; for(int i=0; i<this->num; i++){ this->arr=arr; } }
+    List(int *arr, int num):List(){ this->num=num; this->arr = new int[this->num]; for(int i=0; i<this->num; i++){ this->arr[i]=arr[i]; } }
 
     List(const List &other){ if(this != &other){ this->num=other.num;
     delete[] this->arr; this->arr = new int[num]; for(int i=0; i<num; i++){ this->arr[i]=other.arr[i]; } } }
@@ -15,7 +15,7 @@ public:
     List &operator = (const List &other){ if(this != &other){ this->num=other.num;
     delete[] this->arr; this->arr = new int[num]; for(int i=0; i<num; i++){ this->arr[i]=other.arr[i]; } } return *this; }
 
-    ~List(){}
+    ~List(){ delete[] this->arr; this->arr = nullptr; }
 
     int sum(){ int summery=0; for(int i=0; i<this->num; i++){ summery+=this->arr[i]; } return summery; }
     double average(){ return sum()/(double)this->num; }
