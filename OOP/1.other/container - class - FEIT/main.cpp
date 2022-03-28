@@ -1,53 +1,32 @@
 #include <iostream>
+#define MAX 10
 
-class vector
+struct stack
 {
-private:
-    int *arr{nullptr}; int num{0};
-public:
-    vector(){ this->num=0; this->arr = nullptr; }
-    ~vector(){ delete[] this->arr; this->arr=nullptr; }
+    int *arr=nullptr; int num; size_t size;
 
-    vector(const vector &other){ if(this != &other){ this->num = other.num;
-    this->arr; this->arr = new int[this->num]; for(int i=0; i<this->num; i++){ this->arr[i] = other.arr[i]; } } }
+    stack init(){ size=MAX; num=-1; arr = (int*)calloc(size, sizeof(int)); }
 
-    vector &operator = (vector &other){ if(this != &other){ this->num = other.num;
-    delete[] this->arr; this->arr = new int[this->num]; for(int i=0; i<this->num; i++){ this->arr[i] = other.arr[i]; } } return *this; }
+    void push(int elemenet){ if(++num>=size){ size*=2; int *tmp = (int*)realloc(arr, size * sizeof(int)); arr=tmp; }  *(arr+num)=elemenet; }
 
-    int &operator[](int index){ return this->arr[index]; }
+    void pop(){ if(!isEmpty()){ num--; } else { std::cout<<std::endl<<"ERROR_LOG: the stack is empty"<<std::endl; } }
 
-    friend std::ostream &operator << (std::ostream &output, vector &other){
-    for(unsigned int i=0; i<other.size(); i++){ output<<other.arr[i]; } return output; }
-
-    void push_back(int element){
-    int *tmp = new int[this->num+1]; for(int i=0; i<this->num; i++){ tmp[i] = this->arr[i]; }
-    tmp[num++] = element; delete[] this->arr; this->arr = tmp; }
-
-    void pop_back(){
-    if(!empty()){ int *tmp = new int[--this->num]; for(int i=0; i<this->num; i++){ tmp[i] = this->arr[i]; }
-    delete[] this->arr; this->arr = tmp; } else{ throw std::bad_alloc{}; } }
-
-    void erase(int pos){ if(pos<this->num){
-    for(int i=0; i<this->num; i++){ if(i==pos){ --this->num;
-    for(int j=i; j<this->num; j++){ this->arr[j] = this->arr[j+1]; } break; } } } }
-
-    size_t size(){ return (size_t)this->num; }
-    bool empty(){ return (this->num==0); }
-    int back(){ return this->arr[this->num-1]; }
-    int front(){ return this->arr[0]; }
+    int peek(){ return arr[num]; }
+    bool isEmpty(){ return (num==-1); }
+    void print(){ for(int i=0; i<num+1; i++){ std::cout<<arr[i]; } }
 };
 
-int fn(vector &prim)
+int fn(stack &s)
 {
-    vector tmp_1, tmp_2; tmp_1 = prim;
-    while(!prim.empty()){ tmp_2.push_back(prim.back()); prim.pop_back(); }
-    while(!tmp_1.empty() || !tmp_2.empty()){ prim.push_back(tmp_1.back()+tmp_2.back()); tmp_1.pop_back(); tmp_2.pop_back(); }
+    stack tmp_1=s, tmp_2; tmp_2.init();
+
+    while(!s.isEmpty()){ tmp_2.push(s.peek()); s.pop(); } s.init();
+    while(!tmp_1.isEmpty() || !tmp_2.isEmpty()){ s.push(tmp_1.peek()+tmp_2.peek()); tmp_1.pop(); tmp_2.pop(); }
 }
 
 int main()
 {
-    vector int_stack; int number; std::cin>>number;
-
-    while(number){ int_stack.push_back(number%10); number/=10; }
-    fn(int_stack); std::cout<<int_stack<<std::endl; return 0;
+    stack s; int no, element; s.init(); std::cin>>no;
+    while(no!=0){ element = no%10; no/=10; s.push(element); }
+    fn(s); s.print(); return 0;
 }

@@ -7,7 +7,7 @@ char *get_enum_str(int enum_val) { char *str = new char[(size_t)(strlen(enum_to_
 class File
 {
 private:
-    char *file_name, *owner; int file_size; Extension type;
+    char *file_name{nullptr}, *owner{nullptr}; int file_size{0}; Extension type{(Extension)0};
 public:
     File(){}
 
