@@ -22,7 +22,7 @@ void print(Patient *arr, int num, char *date)
 
     for(int i=0; i<num; i++)
     {
-        if(arr[i].v_c.vax_num == 2 && m - arr[i].v_c.month >= 6)
+        if(arr[i].v_c.vax_num == 2 && abs(m - arr[i].v_c.month) == 6)
         {
             printf("Ime: %s - embg: %d\n", arr[i].name, arr[i].embg);
         }
@@ -31,7 +31,7 @@ void print(Patient *arr, int num, char *date)
 
 int main()
 {
-    int n; scanf("%d", &n); Patient arr[n]; char date[9];
+    int n; scanf("%d", &n); Patient arr[100]; char date[9];
 
     for(int i=0; i<n; i++)
     {
