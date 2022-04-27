@@ -94,6 +94,7 @@ int main()
     AllStarPlayer* asPlayers = new AllStarPlayer[5];
     int n; std::cin>>n;
 
+
     if (n == 1){
         std::cout << "NBA PLAYERS:" << std::endl;
         std::cout << "=====================================" << std::endl;
