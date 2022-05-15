@@ -1,0 +1,2 @@
+C:\Users\filip\Documents\GitHub\1.FINKI\C & C++\OOP\labaratoriski vezbi - 9\zadacha4\x64\Debug\zadacha4.exe
+C:\Users\filip\Documents\GitHub\main\C & C++\1. FINKI\OOP\labaratoriski vezbi - 9\zadacha4\x64\Debug\zadacha4.exe

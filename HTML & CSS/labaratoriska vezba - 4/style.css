@@ -166,3 +166,23 @@
     align-items: center;
     padding: 20px 10%;
 }
+
+@media screen and (max-width: 1024px) {
+    .container_1{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+   }
+   .container_2{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+   }
+}
+
+@media screen and (max-width: 600px) {
+    .container_1 {
+        width: 90%;
+    }
+    .container_2{
+        width: 90%;
+    }
+} 

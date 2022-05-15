@@ -118,8 +118,8 @@
 .card {
     margin: 1% 1% 1%;
     border-radius: 20px;
-    width: 450px;
-    height: 480px;
+    max-width: fit-content;
+    max-height: fit-content;
     background-color: white;
 }
 
@@ -131,6 +131,7 @@
     padding-top: 5%;
     object-fit: cover;
 }
+
 
 .card .container p {
     text-align: justify;
@@ -162,3 +163,17 @@
     align-items: center;
     padding: 20px 10%;
 }
+
+@media screen and (max-width: 1024px) {
+    .cards{
+        grid-template-columns: 1fr;
+        gap: 2rem;
+   }
+}
+
+@media screen and (max-width: 600px) {
+    .cards {
+        width: 90%;
+        max-height: fit-content;
+    }
+} 
