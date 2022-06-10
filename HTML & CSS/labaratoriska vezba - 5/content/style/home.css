@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    background-color: var(--background-color);
+    color: var(--table-text);
+
+    height: 100vh;
+    padding-top: 2rem;
+}
+
+table{
+    width: 90%;
+
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+td,th{
+    padding: 2px;
+}
+
+table, th, td{
+    border: 1px solid var(--table-text);
+    border-collapse: collapse;
+}
+
+tr{
+    text-align: center;
+}
+
+h3{
+    text-align: center;
+
+    padding: 20px;
+}
+
+#link{
+    color: var(--link-color);
+}

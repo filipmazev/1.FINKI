@@ -1,0 +1,107 @@
+.container{
+    background-color: var(--background-color);
+    color: var(--table-text);
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+
+    height: 100vh;
+    padding: 3rem;
+}
+
+#container-title-text{
+    color: var(--contact-form-text);
+}
+
+.contact{
+    background: var(--contact-color);
+    color: var(--contact-text);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    gap: 1.5rem;
+
+    border-radius: 10px;
+    width: 100%;
+}
+
+.content{
+    flex: 40%;
+    justify-content: space-around;
+    text-align: left;
+}
+
+#contact-title{
+    font-weight: 400;
+    font-size: 120%;
+}
+
+::placeholder { 
+    color: var(--contact-form-text);
+}
+
+input[type=text], select, textarea {
+    background-color: var(--contact-form);
+    color: var(--contact-form-text);
+
+    width: 100%;
+    padding: 0.7rem;
+
+    border: 1px solid var(--contact-border);
+    border-radius: 5px;
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    resize: vertical;
+}
+
+input[type=date], select, textarea {
+    background-color: var(--contact-form);
+    color: var(--contact-form-text);
+
+    width: 100%;
+    padding: 0.7rem;
+
+    border: 1px solid var(--contact-border);
+    border-radius: 5px;
+
+    margin-top: 5px;
+    margin-bottom: 15px;
+
+    resize: vertical;
+}
+
+input[type=submit] {
+    background-color: var(--contact-button);
+    color: white;
+    padding: 0.7rem 2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button{
+    background-color: var(--contact-button);
+    color: white;
+    font-size: 100%;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+   
+    width: 30%;
+    border-radius: 5px;
+}
+
+#file-button{
+    padding-left: 10px;
+    padding-right: 10px;
+}

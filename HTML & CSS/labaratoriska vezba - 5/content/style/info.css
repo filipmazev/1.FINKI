@@ -1,0 +1,32 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    background-color: var(--background-color);
+    color: var(--table-text);
+
+    height: 100%;
+    padding: 3rem;
+}
+
+#container-title-text{
+    color: var(--contact-form-text);
+}
+
+.content{
+    background: var(--frame-bg);
+
+    border-radius: 10px;
+
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    width: 100%;
+}
+
+iframe{
+    width: 100%;
+    height: 50vh;
+}
