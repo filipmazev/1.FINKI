@@ -150,6 +150,11 @@ public:
 };
 
 int main() {
+
+    char* ime = new char[20];
+
+    ime = "test";
+
     char* account_number = new char[ACCOUNT_NUMBER_LENGHT+1]; strcpy(account_number, "300047024112789"); Account a(account_number, 1500);
 
     int n, day, month, year, type; double value; char currency[CURRENCY_LENGHT+1]; std::cin >> n;
