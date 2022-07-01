@@ -1,0 +1,249 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+#cssmenu{
+    width: 100%;
+    background-color: black;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+#cssmenu ul{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    list-style: none;
+}
+
+#cssmenu ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+#cssmenu li{
+    padding: 5px;
+}
+
+#cssmenu li:hover{
+    background-color: #01bafd;
+}
+
+.active{
+    background-color: #01bafd;
+    bottom: 0;
+    height: inherit;
+}
+
+.header-banner{
+    display: flex;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: relative;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    gap: 0;
+}
+
+.col-2-3{
+    width: 75%;
+    height: 85vh;
+    background-image: url(../images/header.jpg);
+    background-repeat: no-repeat;
+    background-position: 0;
+    background-size: contain;
+    object-fit: contain;
+}
+
+.col-1-3{
+    background-color: #01bafd;
+    width: 40%;
+}
+
+.header-text{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.header-text h1{
+    font-size: 350%;  
+}
+
+.header-text p{
+    font-size: 105%;  
+}
+
+.header-text a{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    width: 120px;
+    height: 40px;
+    border: 1px solid white; 
+    margin-top: 1rem;
+}
+
+.wrap-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.row .wrap-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.col-1-2{
+    display: flex;
+    flex-direction: column !important;
+
+}
+
+.col-1-2 .wrap-col{    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 350px;
+    padding: 2rem;
+    background-color: #1b1c1e;
+    color: white;
+}
+
+.col-1-2 .wrap-col .row{
+    width: 50%;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+}
+
+.lead{
+    display: flex;
+    flex-direction: column;
+}
+
+.intro{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 180%;
+    width: 250px;
+}
+
+.line{
+    width: 80px;
+    background-color: white;
+    height: 3px;
+}
+
+.boxstyle-2 .header{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+
+.boxstyle-1 .header h2{
+    font-size: 500%;
+    font-variant: small-caps;
+}
+
+.boxstyle-1 p{
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 1rem;
+    font-size: 110%;
+}
+
+.box-item-content a{
+    color: #01a6ff;
+    text-decoration: none;
+    width: 100px;
+    padding-right: 10rem;
+    text-align: center;
+}
+
+.box-1 .row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.box-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 100%;
+    height: 250px;
+    margin-top: 3rem;
+    background-color: transparent;
+
+    position: relative;
+}
+
+
+.box-2 .box-item-content::before{
+    content: '';
+    background: url(../images/feature-icon-1.png);
+    background-position: 0;
+    background-position-x: center;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    transform: translateY(-80%);
+}
+
+.box-2 .box-item-content p{
+    width: 150px;
+    text-align: center;
+    font-size: 70%;
+}
+
+.box-3{
+    display: flex;
+    flex-direction: column;
+    width: 170vw;
+    height: 90vh;
+    background: url(../images/transparent-back-1.png), #f7f7f7;
+    background-position: center;
+    background-position-y: -50px;
+    background-position-x: 700px;
+    background-repeat: no-repeat;
+    background-size: 40%;
+}
+
+.box-3 .row{
+    display: flex;
+    flex-direction: column;
+}
+
+.box-3 .row:not(.wrap-box){
+    background-color: white;
+}
